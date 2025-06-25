@@ -1,37 +1,42 @@
-let nomeHeroi = ["Batman" , "Super-homem" , "Mulher-maravilha" , "Homem aranha" , "Hulk" , "One Above All"]
-let xpHeroi = [ 4526, 8513, 9125, 6320, 9766, 12000 ]
+const niveisDeHeroi = [
+    { nome: "Ferro", minXP: 0, maxXP: 1000 },
+    { nome: "Bronze", minXP: 1001, maxXP: 2000 },
+    { nome: "Prata", minXP: 2001, maxXP: 5000 },
+    { nome: "Ouro", minXP: 5001, maxXP: 7000 },
+    { nome: "Platina", minXP: 7001, maxXP: 8000 },
+    { nome: "Ascendente", minXP: 8001, maxXP: 9000 },
+    { nome: "Imortal", minXP: 9001, maxXP: 10000 },
+    { nome: "Radiante", minXP: 10001, maxXP: Infinity }
+];
 
-for (let i = 0; i < nomeHeroi.length; i++){
+const herois = [
+    { nome: "Batman", xp: 4526 },
+    { nome: "Super-homem", xp: 7513 },
+    { nome: "Mulher-maravilha", xp: 9125 },
+    { nome: "Caçador de Marte", xp: 4320 },
+    { nome: "Homem Aranha", xp: 9766 },
+    { nome: "Hulk", xp: 12000 },
+    { nome: "One Above All", xp: 15000 }
+];
+
+function obterNivelDoHeroi(xpDoHeroi) {
+    
+    for (const nivel of niveisDeHeroi) {
         
-    let nome = nomeHeroi[i]
-    let xp = xpHeroi[i]
-    let nivel
-    
-    if (xp < 1000){
-        nivel = "Ferro"
-
-        }else if (xp >= 1001 && xp <= 2000){
-        nivel = "Bronze"
-
-        }else if (xp >= 2001 && xp <= 5000){
-        nivel = "Prata"
-
-        }else if (xp >= 5001 && xp <= 7000){
-        nivel = "Ouro"
-
-        }else if (xp >= 7001 && xp <= 8000){
-        nivel = "Platina"
-
-        }else if (xp >= 8001 && xp <= 9000){
-        nivel = "Ascendente"
-
-        }else if (xp >= 9001 && xp <= 10000){
-        nivel = "Imortal"
-
-        }else if (xp >= 10001){
-        nivel = "Radiante"
-
+        if (xpDoHeroi >= nivel.minXP && xpDoHeroi <= nivel.maxXP) {
+            return nivel.nome; 
+        }
     }
+    return "Nível Desconhecido"; 
+}
+
+
+console.log("--- Níveis dos Heróis ---");
+for (const heroi of herois) {
+    const nomeDoHeroi = heroi.nome;
+    const xpDoHeroi = heroi.xp;
     
-    console.log(`O Herói ${nome} está no nível ${nivel}`)
+    const nivelDoHeroi = obterNivelDoHeroi(xpDoHeroi);
+    
+    console.log(`O Herói ${nomeDoHeroi} está no nível de ${nivelDoHeroi}.`);
 }
