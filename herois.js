@@ -27,7 +27,6 @@ function obterNivelDoHeroi(xpDoHeroi) {
             return nivel.nome; 
         }
     }
-    return "Nível Desconhecido"; 
 }
 
 
@@ -38,5 +37,5 @@ for (const heroi of herois) {
     
     const nivelDoHeroi = obterNivelDoHeroi(xpDoHeroi);
     
-    console.log(`O Herói ${nomeDoHeroi} está no nível de ${nivelDoHeroi}.`);
+    console.log(`O Herói ${nomeDoHeroi} está no nível ${nivelDoHeroi}.`);
 }
